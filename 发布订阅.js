@@ -57,7 +57,15 @@ class EventEmitter{
 }
 
 //执行：控制台输入：node 发布订阅.js
+//控制台输出：今天,小明订阅了我
+//控制台输出：昨天,小红订阅了我
+//控制台输出：未来,小菜菜订阅了我
 const emitter=new EventEmitter();
-emitter.on('click',f1)
+emitter.once('click',f1)
+emitter.emit('click','今天','小明')
+emitter.emit('click','明天','小李')
+emitter.on('click',f1);
 emitter.emit('click','昨天','小红')
-
+emitter.emit('click','未来','小菜菜')
+emitter.off('click',f1);
+emitter.emit('click','未来','小菜菜')
